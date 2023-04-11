@@ -48,7 +48,7 @@ function App() {
             }
           />
           <SortSelector
-          sortOrder= {gameQuery.sortOrderƒ}
+          sortOrder= {gameQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
               setGameQuery({ ...gameQuery, sortOrder })
             }
