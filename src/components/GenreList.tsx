@@ -15,12 +15,13 @@ interface Props {
   selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({  selectedGenre, onSelectGenre}: Props) => {
   const { data, isLoading, error } = useGenres();
+
+  if (error) return null;
 
   if (isLoading) return <Spinner />;
 
-  if (error) return null;
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
