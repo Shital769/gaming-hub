@@ -9,8 +9,6 @@ interface Props {
   selectedPlatform: Platform | null;
 }
 
-
-
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data } = usePlatforms();
   return (
