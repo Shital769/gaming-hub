@@ -1,6 +1,7 @@
 // import genres from "../data/genres";
 import useData from "./useData";
 
+//fetching genres
 export interface Genre {
   // image_background(image_background: any): string;
   id: number;
