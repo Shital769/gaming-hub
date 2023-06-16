@@ -1,5 +1,8 @@
 // import genres from "../data/genres";
-import useData from "./useData";
+import { useQuery } from "@tanstack/react-query";
+import apiClient from "../services/api-client";
+import { FetchResponse } from "./useData";
+import genres from "../data/genres";
 
 //fetching genres
 export interface Genre {
@@ -9,7 +12,15 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenres = () => useData<Genre>("/genres");
+const useGenres = () =>
+  useQuery({
+    queryKey: ["genres"],
+    queryFn: () =>
+      apiClient.get<FetchResponse<Genre>>("/genres ").then((res) => res.data),
+    staleTime: 24 * 60 * 60 * 1000, //24 hrs, for 24hr data will be fresh, so no request will be made to the backened genres
+    initialData: genres,
+    // initialData: {count:genres.length, results:genres}
+  });
 
 //To call the data from the application directly, we use the below function and use data from "/src/data/genres.ts"
 

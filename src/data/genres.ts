@@ -1,4 +1,4 @@
-// To call the data or genres directly from the app rather than calling server, I have pulled data from results in Network Tab in developer tool.
+// To call the data or genres directly from the app rather than calling server, I have pulled data from results in Network Tab in developer tool. 
 
 export default {
   count: 19,
