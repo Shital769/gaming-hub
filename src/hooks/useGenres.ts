@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import APIClient from "../services/api-client";
 import genres from "../data/genres";
-import { FetchResponse } from "../services/api-client";
+import APIClient from "../services/api-client";
 
 const apiClient = new APIClient<Genre>("/genres");
 
@@ -17,9 +16,9 @@ const useGenres = () =>
   useQuery({
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
-    staleTime: 24 * 60 * 60 * 1000, //24 hrs, for 24hr data will be fresh, so no request will be made to the backened genres
-    initialData: genres,
-    // initialData: {count:genres.length, results:genres}
+    staleTime: 24 * 60 * 60 * 1000,
+    //24 hrs, for 24hr data will be fresh, so no request will be made to the backened genres
+    initialData: { count: genres.length, results: genres, next: null },
   });
 
 //To call the data from the application directly, we use the below function and use data from "/src/data/genres.ts"
