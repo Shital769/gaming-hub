@@ -12,12 +12,7 @@ import GameHeading from "./components/GameHeading";
 // undefined; the absence of a value
 //null: the intentional absence of a value
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string;
-  searchText: string;
-}
+
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
