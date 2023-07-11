@@ -1,3 +1,5 @@
+import { create } from "zustand";
+
 interface GameQuery {
   genreId?: number;
   platformId?: number;
@@ -31,4 +33,4 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
     })),
 }));
 
-export default GameQueryStore;
+export default useGameQueryStore;
