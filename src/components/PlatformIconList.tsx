@@ -6,7 +6,7 @@ import {
   FaLinux,
   FaAndroid,
 } from "react-icons/fa";
-import { Platform } from "../hooks/usePlatforms";
+import { Platform } from "../entities/Platform";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
-  const iconMap: {[key: string]:IconType} = {
+  const iconMap: { [key: string]: IconType } = {
     //name: PlayStation
     //slug: playstation
     pc: FaWindows,
@@ -32,9 +32,11 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   return (
-    <HStack margin={1}> // 1 * multiple of theme value
+    <HStack margin={1}>
+      {" "}
+      // 1 * multiple of theme value
       {platforms.map((platform) => (
-      <Icon key={platform.id} as={iconMap[platform.slug]} color='gray.500' />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
       ))}
     </HStack>
   );

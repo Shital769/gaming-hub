@@ -7,13 +7,14 @@ const GameDetailPage = () => {
   const { data: game, isLoading, error } = useGame(slug!);
 
   if (isLoading) return <Spinner />;
-  if (error || !game ) throw error;
+  if (error || !game) throw error;
 
-  return;
-  <>
-    <Heading>{game?.name}</Heading>
-    <Text>{game?.description} </Text>
-  </>;
+  return (
+    <>
+      <Heading>{game?.name}</Heading>
+      <Text>{game?.description_raw} </Text>
+    </>
+  );
 };
 
 export default GameDetailPage;
