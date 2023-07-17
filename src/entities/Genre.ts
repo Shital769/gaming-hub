@@ -1,6 +1,6 @@
 //fetching genres
 
-export interface Genre {
+export default interface Genre {
   // image_background(image_background: any): string;
   id: number;
   name: string;
