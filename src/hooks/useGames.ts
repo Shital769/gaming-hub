@@ -9,6 +9,8 @@ const apiClient = new APIClient<Game>("/games");
 export interface Game {
   id: number;
   name: string;
+  slug: string;
+  description: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
@@ -16,7 +18,7 @@ export interface Game {
 }
 
 const useGames = () => {
-  const gameQuery = useGameQueryStore((s: { gameQuery: any }) => s.gameQuery);
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
 
   //using infinite query instead of useQuery
   return useInfiniteQuery<FetchResponse<Game>, Error>({
